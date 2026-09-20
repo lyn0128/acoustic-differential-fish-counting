@@ -29,12 +29,13 @@
 11.     Calculate the frame-level direct estimate:
                 N_frame[f] = SUM(Q[f,r]), r = 1,...,59
 12. END FOR
-13. Aggregate the 15 frame-level ring features using the recorded study rule.
-14. Standardise the 59 aggregated ring features using training-set statistics.
-15. Input the features to a BP network with one 30-neuron hidden layer.
-16. Fit the network using Bayesian regularisation.
-17. Output the corrected cage-level estimate N_est.
-18. Calculate absolute error, error rate, accuracy, MAE, RMSE, and the
+13. Sum the 15 selected water-layer totals:
+                N_direct = SUM(N_frame[f]), f = 1,...,15
+14. Input the scalar direct estimate N_direct to a BP network with one
+    30-neuron hidden layer and one scalar fish-quantity output.
+15. Fit the network using Bayesian regularisation.
+16. Output the corrected cage-level estimate N_est.
+17. Calculate absolute error, error rate, accuracy, MAE, RMSE, and the
     leave-one-dataset-out error distribution.
 ```
 
@@ -42,3 +43,6 @@ The approximately 4000 coordinate observations produced within a dataset are
 nested spatial observations. They increase spatial information density but are
 not treated as approximately 4000 independent experimental replicates.
 
+The study reported leave-one-out cross-validation with the same fixed network
+architecture. Repeated or nested cross-validation was not reported and remains
+future work.

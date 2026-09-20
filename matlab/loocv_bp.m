@@ -3,8 +3,12 @@ function results = loocv_bp(inputFile)
 
 T = readtable(inputFile, VariableNamingRule="preserve");
 T = T(logical(T.valid), :);
-ringNames = compose("ring_%02d", 1:59);
-X = table2array(T(:, ringNames))';
+if ismember("direct_estimate", string(T.Properties.VariableNames))
+    X = T.direct_estimate';
+else
+    ringNames = compose("ring_%02d", 1:59);
+    X = sum(table2array(T(:, ringNames)), 2)';
+end
 y = T.reference_count';
 n = height(T);
 prediction = nan(1, n);
@@ -32,4 +36,3 @@ fprintf("LOOCV RMSE: %.4f\n", sqrt(mean(error.^2)));
 fprintf("LOOCV mean accuracy: %.4f%%\n", mean(accuracy));
 fprintf("LOOCV error-rate SD: %.4f%%\n", std(errorRate));
 end
-

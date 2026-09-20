@@ -18,7 +18,10 @@ pixel calibration, and Bayesian-regularised BP correction.
 - Otsu thresholding is applied independently within each ring.
 - Foreground pixels are converted using the distance-specific single-fish
   calibration for that ring.
-- Ring features are supplied to a one-hidden-layer BP network with 30 neurons.
+- The 59 calibrated ring counts are summed within each frame, and the 15
+  selected water-layer totals are summed to one scalar direct estimate.
+- The scalar direct estimate is supplied to a one-hidden-layer BP network with
+  30 neurons and one fish-quantity output.
 - MATLAB Bayesian regularisation (`trainbr`) is used for model fitting.
 - Each cage has 27 datasets: 18 for model development and 9 for independent
   validation. Coordinate observations within a scan are nested measurements,
@@ -58,13 +61,18 @@ results = train_bp_model("dataset_features.csv", "Cage1");
 cv = loocv_bp("dataset_features.csv");
 ```
 
-MATLAB requires Deep Learning Toolbox (formerly Neural Network Toolbox).
+MATLAB requires Deep Learning Toolbox (formerly Neural Network Toolbox). The
+exact MATLAB release used in the original analysis was not retained in the
+archived computational record. The released Python reference implementation is
+tested with Python 3.10 or later and the minimum package versions in
+`requirements.txt`.
 
 ## Data availability
 
 Raw sonar images and commercial farm-operation records are not included because
 they contain facility-specific operational information. The repository provides
-the full algorithms, parameter settings, and input templates. Anonymised
+the full algorithms, parameter settings, input templates, and the derived
+59-ring single-fish calibration vector. Anonymised
 intermediate data may be made available by the corresponding author subject to
 the study's data-sharing conditions.
 
@@ -74,4 +82,3 @@ Sun, P., Huang, X., Sun, J., Tao, Q., Yuan, T., Li, G., Pang, G., Liu, H., and
 Hu, Y. (2025). Estimating fish quantity and distribution in offshore cage
 aquaculture using YOLOv8 and fish density. *Smart Agricultural Technology*, 12,
 101514. https://doi.org/10.1016/j.atech.2025.101514
-

@@ -3,8 +3,12 @@ function results = train_bp_model(inputFile, cageId)
 
 T = readtable(inputFile, VariableNamingRule="preserve");
 T = T(logical(T.valid) & string(T.cage_id) == string(cageId), :);
-ringNames = compose("ring_%02d", 1:59);
-X = table2array(T(:, ringNames))';
+if ismember("direct_estimate", string(T.Properties.VariableNames))
+    X = T.direct_estimate';
+else
+    ringNames = compose("ring_%02d", 1:59);
+    X = sum(table2array(T(:, ringNames)), 2)';
+end
 y = T.reference_count';
 
 if height(T) ~= 27
@@ -43,4 +47,3 @@ results.Properties.UserData.trainingRecord = trainingRecord;
 results.Properties.UserData.independentRows = independent;
 writetable(results, "bp_predictions_" + string(cageId) + ".csv");
 end
-

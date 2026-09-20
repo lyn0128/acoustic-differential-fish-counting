@@ -1,0 +1,60 @@
+ring,outer_distance_cm,benchmark_pixel_count,basis
+1,22,13.3626,within measured range
+2,44,13.4638,within measured range
+3,66,13.6618,within measured range
+4,88,13.9566,within measured range
+5,110,14.3482,within measured range
+6,132,14.8366,within measured range
+7,154,15.4218,within measured range
+8,176,16.1038,within measured range
+9,198,16.8826,within measured range
+10,220,17.7582,within measured range
+11,242,18.7306,within measured range
+12,264,19.7998,within measured range
+13,286,20.9658,within measured range
+14,308,22.2286,within measured range
+15,330,23.5882,within measured range
+16,352,25.0446,within measured range
+17,374,26.5978,within measured range
+18,396,28.2478,extrapolated
+19,418,29.9946,extrapolated
+20,440,31.8382,extrapolated
+21,462,33.7786,extrapolated
+22,484,35.8158,extrapolated
+23,506,37.9498,extrapolated
+24,528,40.1806,extrapolated
+25,550,42.5082,extrapolated
+26,572,44.9326,extrapolated
+27,594,47.4538,extrapolated
+28,616,50.0718,extrapolated
+29,638,52.7866,extrapolated
+30,660,55.5982,extrapolated
+31,682,58.5066,extrapolated
+32,704,61.5118,extrapolated
+33,726,64.6138,extrapolated
+34,748,67.8126,extrapolated
+35,770,71.1082,extrapolated
+36,792,74.5006,extrapolated
+37,814,77.9898,extrapolated
+38,836,81.5758,extrapolated
+39,858,85.2586,extrapolated
+40,880,89.0382,extrapolated
+41,902,92.9146,extrapolated
+42,924,96.8878,extrapolated
+43,946,100.9578,extrapolated
+44,968,105.1246,extrapolated
+45,990,109.3882,extrapolated
+46,1012,113.7486,extrapolated
+47,1034,118.2058,extrapolated
+48,1056,122.7598,extrapolated
+49,1078,127.4106,extrapolated
+50,1100,132.1582,extrapolated
+51,1122,137.0026,extrapolated
+52,1144,141.9438,extrapolated
+53,1166,146.9818,extrapolated
+54,1188,152.1166,extrapolated
+55,1210,157.3482,extrapolated
+56,1232,162.6766,extrapolated
+57,1254,168.1018,extrapolated
+58,1276,173.6238,extrapolated
+59,1298,179.2426,extrapolated
